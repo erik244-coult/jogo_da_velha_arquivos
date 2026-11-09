@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Velha — Menu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="menu-page">
+    <section class="menu-card">
+      <div class="logo">✕ <span>○</span></div>
+      <p class="eyebrow">DESAFIO CLÁSSICO</p>
+      <h1>Jogo da Velha</h1>
+      <p class="subtitle">Escolha como deseja jogar.</p>
+
+      <div class="mode-options">
+        <button class="mode-card" id="singleBtn">
+          <span class="mode-icon">🤖</span>
+          <span class="mode-title">Single Player</span>
+          <span class="mode-description">Enfrente a inteligência artificial</span>
+        </button>
+        <button class="mode-card" id="dualBtn">
+          <span class="mode-icon">👥</span>
+          <span class="mode-title">Dual Player</span>
+          <span class="mode-description">Jogue com outra pessoa</span>
+        </button>
+      </div>
+
+      <div class="difficulty" id="difficultyBox" hidden>
+        <label for="difficulty">Dificuldade da IA</label>
+        <select id="difficulty">
+          <option value="easy">Fácil</option>
+          <option value="medium" selected>Médio</option>
+          <option value="hard">Difícil</option>
+        </select>
+        <button class="primary-btn" id="startSingle">Começar partida</button>
+      </div>
+      <p class="menu-hint">No modo de dois jogadores, X começa.</p>
+    </section>
+  </main>
+  <script>
+    const difficultyBox = document.getElementById('difficultyBox');
+    document.getElementById('singleBtn').addEventListener('click', () => {
+      difficultyBox.hidden = false;
+      difficultyBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+    document.getElementById('dualBtn').addEventListener('click', () => {
+      sessionStorage.setItem('gameMode', 'dual');
+      sessionStorage.removeItem('difficulty');
+      window.location.href = 'jogo.html';
+    });
+    document.getElementById('startSingle').addEventListener('click', () => {
+      sessionStorage.setItem('gameMode', 'single');
+      sessionStorage.setItem('difficulty', document.getElementById('difficulty').value);
+      window.location.href = 'jogo.html';
+    });
+  </script>
+</body>
+</html>

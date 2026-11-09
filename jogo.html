@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Velha — Partida</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-page">
+    <header class="game-header">
+      <button class="back-btn" id="backMenu">← Menu</button>
+      <div>
+        <p class="eyebrow">JOGO DA VELHA</p>
+        <h1>Partida</h1>
+      </div>
+      <span class="mode-badge" id="modeBadge">Single Player</span>
+    </header>
+
+    <section class="scoreboard">
+      <div class="score-box">
+        <span class="score-label">Vitórias (X)</span>
+        <strong id="wins">0</strong>
+      </div>
+      <div class="score-box">
+        <span class="score-label">Derrotas (X)</span>
+        <strong id="losses">0</strong>
+      </div>
+      <div class="score-box">
+        <span class="score-label">Empates</span>
+        <strong id="draws">0</strong>
+      </div>
+    </section>
+
+    <section class="board-card">
+      <p class="status" id="status">Sua vez! Você é o X.</p>
+      <div class="board" id="board" role="grid" aria-label="Tabuleiro do jogo da velha">
+        <button class="cell" data-index="0" aria-label="Casa 1"></button>
+        <button class="cell" data-index="1" aria-label="Casa 2"></button>
+        <button class="cell" data-index="2" aria-label="Casa 3"></button>
+        <button class="cell" data-index="3" aria-label="Casa 4"></button>
+        <button class="cell" data-index="4" aria-label="Casa 5"></button>
+        <button class="cell" data-index="5" aria-label="Casa 6"></button>
+        <button class="cell" data-index="6" aria-label="Casa 7"></button>
+        <button class="cell" data-index="7" aria-label="Casa 8"></button>
+        <button class="cell" data-index="8" aria-label="Casa 9"></button>
+      </div>
+      <button class="secondary-btn" id="restartBtn">↻ Reiniciar partida</button>
+    </section>
+  </main>
+
+  <div class="result-overlay" id="resultOverlay" hidden>
+    <section class="result-card" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+      <div class="result-symbol" id="resultSymbol">🏆</div>
+      <p class="eyebrow">FIM DE JOGO</p>
+      <h2 id="resultTitle">Parabéns! Você ganhou</h2>
+      <p id="resultMessage">Boa partida!</p>
+      <div class="result-actions">
+        <button class="secondary-btn" id="resultMenu">Voltar ao menu</button>
+        <button class="primary-btn" id="resultRestart">Reiniciar partida</button>
+      </div>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
